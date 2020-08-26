@@ -87,7 +87,7 @@ function drawCircles() {
 function drawCircle(x, y, radius, fillCircle) {
   ctx.beginPath();
   ctx.arc(x, y, radius, 0, Math.PI * 2, false);
-  if (fillCircle === true) {
+  if (fillCircle) {
     ctx.fill();
   } else {
     ctx.stroke();
@@ -123,3 +123,16 @@ function drawSnowman() {
     drawCircle(100, 90 + i * (10 * 2), 4, true);
   } // Buttons
 }
+
+function drawPoints(array) {
+  ctx.beginPath();
+  ctx.moveTo(array[0][0], array[0][1]);
+  array.map(coordinates => ctx.lineTo(coordinates[0], coordinates[1]));
+  ctx.stroke();
+}
+
+let points = [[50, 50], [50, 100], [100, 100], [100, 50], [50, 50]];
+let mysteryPoints = [[50, 50], [50, 100], [25, 120], [100, 50],
+[70, 90], [100, 90], [70, 120]];
+
+// canvas.addEventListener("mousemove", event => drawCircle(event.offsetX, event.offsetY, 3, true)); // draw circles on move
